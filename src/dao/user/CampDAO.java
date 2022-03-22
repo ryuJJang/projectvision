@@ -74,7 +74,7 @@ public class CampDAO {
 		}
 		return null;
 	}
-<<<<<<< HEAD
+
 	public List<Camp> campList(Camp camp){
 		SqlSession sqlSession = MybatisConnection.getConnection();
 		try {
@@ -86,17 +86,7 @@ public class CampDAO {
 		}
 		return null;
 	}
-	public int nextSeq() { //예약번호를 차례로 받는 기능
-		SqlSession sqlSession = MybatisConnection.getConnection();
-		try {
-			return sqlSession.selectOne(NS+"nextSeq");
-		} catch (Exception e){
-			e.printStackTrace();
-		}finally {
-			MybatisConnection.close(sqlSession);
-		}
-		return 0;
-=======
+
 	public List<Camp> CampList(){
 		SqlSession sqlSession = MybatisConnection.getConnection();
 		try {
@@ -130,6 +120,5 @@ public class CampDAO {
 			MybatisConnection.close(sqlSession);
 		}
 		return null;
->>>>>>> branch 'master' of https://github.com/ryuJJang/projectvision.git
 	}
 } //end class

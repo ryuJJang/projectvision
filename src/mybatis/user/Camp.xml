@@ -35,13 +35,13 @@ from camp where campname = #{campname}
 select seqcamp.nextval from dual
 </select>
 
-<<<<<<< HEAD
+
 <select id="campList" resultType="camp">
 select campname, campaddr, room, campimg, payidx from camp
 </select>
 
 
-=======
+
 <select id="CampList"  resultType="camp">
 select campname, campaddr, room, campimg, payidx from camp
 </select>
@@ -49,5 +49,6 @@ select campname, campaddr, room, campimg, payidx from camp
 <select id="RoomList"  resultType="camp" parameterType="String">
 select room from camp where campname=#{campname}
 </select>
->>>>>>> branch 'master' of https://github.com/ryuJJang/projectvision.git
+
+
 </mapper>
