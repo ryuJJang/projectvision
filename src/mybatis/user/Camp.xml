@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="camp">
+
+<insert id="CampInsert" parameterType="camp">
+insert into camp values(
+#{campidx}, #{campname}, #{campaddr}, #{room}, 
+#{campimg}, #{roomcnt}, #{payidx}, #{roomno},
+#{chkin}, #{chkout})
+</insert>
+
+<delete id="campDelete" parameterType="int">
+delete from camp where campidx = #{campidx}
+</delete>
+
+<update id="CampUpdate" parameterType="camp">
+update camp set
+campaddr = #{campaddr}, room = #{room}, campimg = #{campimg}, 
+payidx = #{payidx}, roomno = #{roomno} 
+where campidx = #{campidx}
+</update>
+
+<select id="selectCamp" resultType="camp" parameterType="int">
+select * from camp where campidx = #{campidx}
+</select>
+
+<select id="chooseCamp" resultType="camp" parameterType="String">
+select campname, campaddr, room, campimg, payidx 
+from camp where campname = #{campname}
+</select>
+
+<select id="nextSeq" resultType="int">
+select seqcamp.nextval from dual
+</select>
+
+<select id="CampList"  resultType="camp">
+select campname, campaddr, room, campimg, payidx from camp
+</select>
+
+<select id="RoomList"  resultType="camp" parameterType="String">
+select room from camp where campname=#{campname}
+</select>
+</mapper>
