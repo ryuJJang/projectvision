@@ -180,7 +180,11 @@ figure.slider figure figcaption {
 
 <div id="collapseTwo" class="collapse" data-parent="#accordion">
 	<div class="card-body">
+<<<<<<< HEAD
 	<c:forEach var="li" items="${c}">
+=======
+	<c:forEach var="c" items="${c}">
+>>>>>>> branch 'master' of https://github.com/ryuJJang/projectvision.git
 	<label style="width: 30%;"><input type="radio" name="roomno" value="1">&nbsp; ${c.room }</label>
 	</c:forEach> 
 	

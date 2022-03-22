@@ -4,7 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <title>예약 상세보기</title>
+=======
+<title>예약 조회하기</title>
+>>>>>>> branch 'master' of https://github.com/ryuJJang/projectvision.git
 <style>
 .notosanskr * { 
  font-family: 'Noto Sans KR', sans-serif;
