@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 
 <style>
-<<<<<<< HEAD
+
 .notosanskr * { 
  font-family: 'Noto Sans KR', sans-serif;
 }
@@ -42,15 +42,9 @@ text-decoration : none;
 <div class="subback">
     <h2 id="center">본인 인증</h2>
 </div>
-=======
-a{
-text-decoration : none;
-}
-</style>
-</head>
-<body>
 
->>>>>>> branch 'master' of https://github.com/ryuJJang/projectvision.git
+
+
 <form class="container pt-5" action="<%=request.getContextPath()%>/userdata/sendMail">
   <div class="form-group">
     <br>

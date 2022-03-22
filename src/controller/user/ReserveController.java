@@ -7,69 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-<<<<<<< HEAD
+
 import dao.user.ReserveDAO;
 import dto.Camp;
 import dto.Reserve;
 import kic.MskimRequestMapping;
 import kic.RequestMapping;
 
-public class ReserveController extends MskimRequestMapping{
-	
-	@RequestMapping("main")
-	public String main(HttpServletRequest request, HttpServletResponse response) {
-		ReserveDAO rd = new ReserveDAO();
-		Camp c = new Camp();
-		request.setAttribute("c", c);
-		try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		    
-		    return "/view/main.jsp";
-	}
-			
-	
-	@RequestMapping("ReserveInsert")
-	public String ReservatIoninput(HttpServletRequest request, HttpServletResponse response) {
-		
-		return "/view/main.jsp";
-	}
-	@RequestMapping("ReserveInsertPro")
-	public String ReserveInsertPro(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		ReserveDAO rd = new ReserveDAO();
-		Reserve r = new Reserve();
-		r.setUsername(request.getParameter("username"));
-		r.setCampname(request.getParameter("campname"));
-		r.setRoom(request.getParameter("room"));
-		r.setCheckin(request.getParameter("chkin"));
-		r.setCheckout(request.getParameter("chkout"));
-		r.setPerson(Integer.parseInt(request.getParameter("person")));
-		r.setPayidx(Integer.parseInt(request.getParameter("payidx")));
-		r.setKid(Integer.parseInt(request.getParameter("kid")));
-		r.setRoomno(Integer.parseInt(request.getParameter("roomno")));
-		
-		r.setReserveidx(rd.nextIdx());
-		int reserveidx = rd.ReserveInsert(r);
-		String msg = "";
-		String url = "";
-		if (reserveidx > 0) {
-			msg = "예약이 완료되었습니다.";
-			url = request.getContextPath()+"/reserve/main";
-=======
+
 import dao.user.CampDAO;
-import dao.user.ReserveDAO;
-import dto.Camp;
-import dto.Reserve;
-import kic.MskimRequestMapping;
-import kic.RequestMapping;
+
 
 public class ReserveController extends MskimRequestMapping{
 	
@@ -121,7 +68,7 @@ public class ReserveController extends MskimRequestMapping{
 		if (idx > 0) {
 			msg = "예약이 완료되었습니다.";
 			url = request.getContextPath()+"/reserve/ReserveList";
->>>>>>> branch 'master' of https://github.com/ryuJJang/projectvision.git
+
 		}else {
 				msg = "예약이 실패하였습니다.";
 				url = request.getContextPath()+"/reserve/main";
