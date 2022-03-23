@@ -1,4 +1,4 @@
-package dao.user;
+package dao;
 
 import org.apache.ibatis.session.SqlSession;
 

@@ -1,4 +1,4 @@
-package controller.user;
+package controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 
-import dao.user.CampDAO;
+import dao.CampDAO;
 import dto.Camp;
 import kic.MskimRequestMapping;
 import kic.RequestMapping;

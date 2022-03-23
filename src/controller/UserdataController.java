@@ -1,4 +1,4 @@
-package controller.user;
+package controller;
 
 
 import java.io.UnsupportedEncodingException;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.user.UserdataDao;
+import dao.UserdataDao;
 import dto.UserData;
 import kic.MskimRequestMapping;
 import kic.RequestMapping;
@@ -28,11 +28,6 @@ import kic.RequestMapping;
 
 public class UserdataController  extends MskimRequestMapping{
 	
-	@RequestMapping("main")
-	public String main(HttpServletRequest request, HttpServletResponse response) {
-		
-		return "/view/main.jsp";
-	}
 	
 	@RequestMapping("sendMailForm")
 	public String sendMailForm(HttpServletRequest request, HttpServletResponse response) {
@@ -168,7 +163,7 @@ public class UserdataController  extends MskimRequestMapping{
 		  		url = request.getContextPath()+"/userdata/loginForm";
 		  	} else {
 		  		msg = "회원가입이 실패하였습니다.";
-		  		url = request.getContextPath()+"/userdata/main";
+		  		url = request.getContextPath()+"/reserve/main";
 		  		///member/main : url-pattern
 		  	}
 		  	
@@ -188,7 +183,13 @@ public class UserdataController  extends MskimRequestMapping{
 		return "/view/userdata/loginForm.jsp";
 	}
 	
-
+	@RequestMapping("manager")
+	public String manager(HttpServletRequest request, HttpServletResponse response) {
+		
+	
+		
+		return "/single/manager.jsp";
+	}
 
 	@RequestMapping("loginPro")
 	public String loginPro(HttpServletRequest request, HttpServletResponse response) {
@@ -207,17 +208,31 @@ public class UserdataController  extends MskimRequestMapping{
 		String msg = "아이디를 확인하세요";
 		String url = request.getContextPath()+"/userdata/loginForm"; 
 		
-		if(u != null){  //mem != null : 아이디가 존재한다 -> pw가 맞을경우, 틀릴경우 2가지
-			if(pass.equals(u.getPassword())){
-				//로그인 확인
-				request.getSession().setAttribute("memberId", id);
-				msg = u.getName()+"님이 로그인 하셨습니다.";
-				url = request.getContextPath()+"/userdata/main"; 
+		if(u != null){  
+			
+			if(u.getUserid().equals("vision")) { //로그인 아이디가 vision인지 확인
+				if(pass.equals(u.getPassword())){ //비밀번호 확인
 				
+					request.getSession().setAttribute("memberId", id);
+					msg = u.getName()+"님이 로그인 하셨습니다.";
+					url = request.getContextPath()+"/userdata/manager"; //관리자페이지로 이동
+		
+				} else { //비밀번호 틀린경우
+					msg = "비밀번호를 확인하세요";
+				}
 			} else {
-				msg = "비밀번호를 확인하세요";
+				if(pass.equals(u.getPassword())){
+					if(!u.getBlack().equals("0")) {
+						msg = "로그인에 실패하였습니다. 관리자에게 문의하세요.";
+						url = request.getContextPath()+"/userdata/loginForm";
+					} else {
+						msg = u.getName() + "님이 로그인 하셨습니다";
+						url = request.getContextPath() + "/reserve/main";}
+					}
+					
+				}
 			}
-		}
+		
 			request.setAttribute("msg", msg);
 	  		request.setAttribute("url", url);
 		
@@ -234,13 +249,30 @@ public class UserdataController  extends MskimRequestMapping{
 		request.getSession().invalidate();
 		
 		String msg = login+"님이 로그아웃하였습니다.";
-		String url = request.getContextPath()+"/userdata/main";
+		String url = request.getContextPath()+"/reserve/main";
 		
 		request.setAttribute("msg", msg);
   		request.setAttribute("url", url);
   	
 		return "/view/alert.jsp";
 	}
+	
+	
+	@RequestMapping("mypageForm")
+	public String mypageForm(HttpServletRequest request, HttpServletResponse response) {
+		//session 받아서 처리해야함
+	
+		
+		return "/view/userdata/mypageForm.jsp";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping("userdataUpdata")
 	public String userdataUpdata(HttpServletRequest request, HttpServletResponse response) {
@@ -250,7 +282,7 @@ public class UserdataController  extends MskimRequestMapping{
 		String login = (String) session.getAttribute("memberId");
 		
 		String msg = "로그인이 필요합니다.";
-		String url = request.getContextPath()+"/member/loginForm";	
+		String url = request.getContextPath()+"/userdata/loginForm";	
 		
 		if (login != null  && !login.trim().equals(""))  {
 			UserdataDao ud = new UserdataDao();
@@ -258,7 +290,7 @@ public class UserdataController  extends MskimRequestMapping{
 			
 			request.setAttribute("userdata", u);
 			
-			return "/view/member/memberUpdate.jsp";
+			return "/view/userdata/updateForm.jsp";
 		}
 		
 		request.setAttribute("msg", msg);

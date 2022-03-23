@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reserve">
+
+<insert id="ReserveInsert" parameterType="reserve">
+insert into reserve values(
+${reserveIdx}, #{userName}, #{campName}, #{room},
+#{chkIn}, #{chkOut}, ${person}, ${payIdx}, ${kid}, ${roomNo})
+</insert>
+
+<delete id="ReserveDelete" parameterType="int">
+delete from reserve where reserveIdx = #{reserveIdx}
+</delete>
+
+<select id="ReserveList" resultType="reserve" parameterType="int">
+select * from reserve where reserveIdx = #{reserveIdx}
+</select>
+
+<select id="nextseq" resultType="int">
+select seqreserve.nextval from dual
+</select>
+
+<select id="selectCamp" resultType="camp">
+select * from camp
+</select>
+
+<update id="ReserveUpdate" parameterType="reserve">
+update reserve set
+room=#{room}, chkin=#{chkin}, chkout=#{chkout}, person=#{person}, kid=#{kid}
+where reserveidx= #{reserveidx}
+</update>
+
+</mapper>

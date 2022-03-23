@@ -1,4 +1,4 @@
-package controller.user;
+package controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -7,15 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-import dao.user.ReserveDAO;
+import dao.CampDAO;
+import dao.ReserveDAO;
 import dto.Camp;
 import dto.Reserve;
 import kic.MskimRequestMapping;
 import kic.RequestMapping;
-
-
-import dao.user.CampDAO;
 
 
 public class ReserveController extends MskimRequestMapping{

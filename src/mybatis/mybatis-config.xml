@@ -25,9 +25,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		</environment>
 	</environments>
 	<mappers>
-	 	<mapper resource="mybatis/user/Camp.xml" /> 
-		<mapper resource="mybatis/user/Reserve.xml" />
-		<mapper resource="mybatis/user/UserData.xml" />
-		<mapper resource="mybatis/user/Board.xml" />
+	 	<mapper resource="mybatis/Camp.xml" /> 
+		<mapper resource="mybatis/Reserve.xml" />
+		<mapper resource="mybatis/UserData.xml" />
+		<mapper resource="mybatis/Board.xml" />
     </mappers>
 </configuration>

@@ -12,15 +12,10 @@
   
   
   <jsp-config>
-		<!-- <jsp-property-group>
-			<url-pattern>/view/*</url-pattern>
-			<include-prelude>/common.admin/head.jsp</include-prelude>
-			<include-coda>/common.admin/footer.jsp</include-coda>
-		</jsp-property-group> -->
 		<jsp-property-group>
 			<url-pattern>/view/*</url-pattern>
-			<include-prelude>/common.user/head.jsp</include-prelude>
-			<include-coda>/common.user/footer.jsp</include-coda>
+			<include-prelude>/common/head.jsp</include-prelude>
+			<include-coda>/common/footer.jsp</include-coda>
 		</jsp-property-group>
 	</jsp-config>
 	
@@ -28,7 +23,7 @@
 	
 	<servlet>
 		<servlet-name>BoardController</servlet-name>
-		<servlet-class>controller.user.BoardController</servlet-class>
+		<servlet-class>controller.BoardController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
@@ -39,7 +34,7 @@
 	
 	<servlet>
 		<servlet-name>adminBoardController</servlet-name>
-		<servlet-class>controller.admin.AdminBoardController</servlet-class>
+		<servlet-class>controller.AdminBoardController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
@@ -50,7 +45,7 @@
 	
 	<servlet>
 		<servlet-name>adminCampController</servlet-name>
-		<servlet-class>controller.admin.AdminCampController</servlet-class>
+		<servlet-class>controller.AdminCampController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
@@ -58,21 +53,11 @@
 		<servlet-name>adminCampController</servlet-name>
 		<url-pattern>/admincamp/*</url-pattern>
 	</servlet-mapping>
-	
-	<!-- <servlet>
-      <servlet-name>adminLoginController</servlet-name>
-      <servlet-class>controller.admin.AdminLoginController</servlet-class>
-      <load-on-startup>1</load-on-startup>
-   </servlet>
 
-   <servlet-mapping>
-      <servlet-name>adminLoginController</servlet-name>
-      <url-pattern>/admin/*</url-pattern>
-   </servlet-mapping> -->
 	
 	<servlet>
       <servlet-name>UserdataController</servlet-name>
-      <servlet-class>controller.user.UserdataController</servlet-class>
+      <servlet-class>controller.UserdataController</servlet-class>
       <load-on-startup>1</load-on-startup>
    </servlet>
    
@@ -83,7 +68,7 @@
 	
 	<servlet>
 		<servlet-name>ReserveController</servlet-name>
-		<servlet-class>controller.user.ReserveController</servlet-class>
+		<servlet-class>controller.ReserveController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
@@ -94,7 +79,7 @@
 	
 	<servlet>
 		<servlet-name>CampController</servlet-name>
-		<servlet-class>controller.user.CampController</servlet-class>
+		<servlet-class>controller.CampController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	

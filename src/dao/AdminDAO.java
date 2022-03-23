@@ -1,4 +1,4 @@
-package dao.admin;
+package dao;
 
 public class AdminDAO {
 

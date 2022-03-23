@@ -17,7 +17,7 @@ public class MybatisConnection {
 		Reader reader = null;
 		try {
 		
-			reader = Resources.getResourceAsReader("mybatis/user/mybatis-config.xml");
+			reader = Resources.getResourceAsReader("mybatis/mybatis-config.xml");
 			sqlmap = new SqlSessionFactoryBuilder().build(reader);
 			System.out.println("ok config");
 		}catch(IOException e){

@@ -5,8 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<style>
+<style >
 
 .notosanskr * { 
  font-family: 'Noto Sans KR', sans-serif;
@@ -32,27 +31,33 @@ h2#center {
     margin-bottom:150px;
 }
 
-
-a{
-text-decoration : none;
-}
 </style>
 </head>
 <body>
+
 <div class="subback">
-    <h2 id="center">본인 인증</h2>
+    <h2 id="center">회원정보수정</h2>
 </div>
 
-
-
-<form class="container pt-5" action="<%=request.getContextPath()%>/userdata/sendMail" method= "post">
-  <div class="form-group">
-    <br>
-    <input type="email" class="form-control" placeholder="email" name="toMail"> 
-  	<button type="submit" class="btn btn-secondary">인증 코드 발송 </button>
- </div>
-</form>
-
-
+<div class="container">
+  
+  <div class="card-deck"> 
+        <div class="card bg-light text-dark">
+    	<div class="card-body text-center">
+    		<a href="#" class="card-link">회원 정보</a></div>
+    	</div>
+    	
+    	<div class="card bg-light text-dark">
+    	<div class="card-body text-center">
+    		<a href="#" class="card-link">예약 내역</a></div>
+    	</div>
+    	
+    	<div class="card bg-light text-dark">
+    	<div class="card-body text-center">
+    		<a href="#" class="card-link">내가 쓴 글</a></div>
+    	</div>
+   
+   </div>  
+</div>
 </body>
 </html>

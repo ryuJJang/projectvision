@@ -1,4 +1,4 @@
-package controller.user;
+package controller;
 
 import kic.MskimRequestMapping;
 

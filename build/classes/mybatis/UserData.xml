@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userdata">
+
+<select id="selectUserdata" parameterType="string" resultType="userdata">
+	select * from userdata where userid = #{userid}
+</select>
+
+<select id="nextUseridx" resultType="int">
+	select sequser.nextval from dual
+</select>
+
+<insert id="insertUserdata" parameterType="userdata">
+	insert into userdata values (#{useridx}, #{userid}, #{password}, 
+		#{name}, #{gender}, #{email}, #{tel}, #{address}, #{birthday},
+		'0','0')
+</insert>
+
+</mapper>
